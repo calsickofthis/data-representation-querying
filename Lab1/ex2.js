@@ -1,33 +1,42 @@
-// Starting Task 2 
 // Part A of Task 2 on problem sheet
-const DataRep = () => {
+
+// creating function for task a 
+const parta = () => {
+    // return string
     return "Data Representation & Querying"
 }
-console.log(DataRep());
+//print function return
+console.log(parta());
 
 // B of Task 2 on problem sheet
+//takes argument and returns it
 const partb = (argument) => {
     return argument
 }
+//print function and return
 console.log(partb(2));
 
 // C of Task 2 on problem sheet
+//takes two inputs
 const partc = (num1, num2) => {
+    // adds two arguments and returns that number
     return num1 + num2
 }
+// print function return
 console.log(partc(2, 3));
 
 // D of Task 2 on problem sheet
+// ages array
 const ages = [25, 31, 42, 77];
 
-const partd = ages.map((num) => {
+// create function and map - multiply any numbers in array by 2
+const partd = ages.map((age) => {
     // return num * 10;
-    if (num < 70) {
-        return num * 2
+    if (age < 70) {
+        return age * 2
     } else {
-        return num
+        return age
     }
 })
+//print the return of the function
 console.log(partd)
-
-// Finished Task 2 
