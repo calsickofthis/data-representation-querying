@@ -2,8 +2,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+// function for editing book
 export default function Edit() {
-    let {id} = useParams();
+    let { id } = useParams();
 
     const [title, setTitle] = useState('');
     const [cover, setCover] = useState('');
@@ -12,39 +13,39 @@ export default function Edit() {
     const navigate = useNavigate();
 
     useEffect(
-        ()=>{
+        () => {
 
-            axios.get('http://localhost:4000/api/book/'+id)
-            .then((response)=>{
-                setTitle(response.data.title);
-                setCover(response.data.cover);
-                setAuthor(response.data.author);
-            })
-            .catch(
-                (error)=>{
-                    console.log(error);
-                }
-            );
-        },[]
+            axios.get('http://localhost:4000/api/book/' + id)
+                .then((response) => {
+                    setTitle(response.data.title);
+                    setCover(response.data.cover);
+                    setAuthor(response.data.author);
+                })
+                .catch(
+                    (error) => {
+                        console.log(error);
+                    }
+                );
+        }, []
     );
 
-    const handleSubmit = (e)=>{
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         const book = {
-            title:title,
-            cover:cover,
-            author:author
+            title: title,
+            cover: cover,
+            author: author
         }
 
-        axios.put('http://localhost:4000/api/book/'+id, book)
-        .then((res)=>{
-            navigate('/read');
-        })
-        .catch(
-            (error)=>{
-                console.log(error)
-            });
+        axios.put('http://localhost:4000/api/book/' + id, book)
+            .then((res) => {
+                navigate('/read');
+            })
+            .catch(
+                (error) => {
+                    console.log(error)
+                });
     }
     return (
         <div>
@@ -76,8 +77,8 @@ export default function Edit() {
                 </div>
                 <div>
                     <input type="submit"
-                    value="Edit Book">
-                        </input>
+                        value="Edit Book">
+                    </input>
                 </div>
             </form>
 
